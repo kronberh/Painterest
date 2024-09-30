@@ -1,9 +1,10 @@
 import './App.css'
+import { Gallery } from './components/Gallery'
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
-      <h1>test</h1>
+      <Gallery />
     </>
   )
 }
