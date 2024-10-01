@@ -1,12 +1,13 @@
-import './App.css'
-import { Gallery } from './components/Gallery'
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import routes from "./routes";
 
-function App(): JSX.Element {
+function App() {
   return (
     <>
-      <Gallery />
+      <RouterProvider router={routes} fallbackElement={<div>pls wait</div>} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
