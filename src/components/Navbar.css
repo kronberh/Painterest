@@ -39,7 +39,7 @@ nav li input[type="search"] {
     width: 100%;
     border-radius: 99em;
     font-weight: 600;
-    padding: 1em;
+    padding: 1.25em;
 }
 
 nav li input[type="search"]::placeholder {
@@ -48,4 +48,8 @@ nav li input[type="search"]::placeholder {
 
 nav li:has(input[type="search"]) {
     flex-grow: 1;
+}
+
+nav li a:is(.active) {
+    box-shadow: 0 0 1em azure;
 }

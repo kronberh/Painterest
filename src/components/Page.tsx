@@ -2,7 +2,7 @@ import "./Page.css";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar";
 
-function Page() {
+function Page(): JSX.Element {
   return (
     <>
       <Navbar />
