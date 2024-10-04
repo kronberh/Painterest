@@ -1,8 +1,11 @@
 interface Image {
-    title: string,
     author: string,
-    description: string,
-    data: string
+    title: string,
+    description?: string,
+    data: string,
+    tags: string[],
+    likes?: number,
+    views?: number,
 }
 
 export type { Image }

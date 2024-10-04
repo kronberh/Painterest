@@ -20,7 +20,7 @@ nav img {
     height: 3em;
 }
 
-nav li a {
+nav li a:not(.image-link) {
     text-decoration: none;
     font-size: 1em;
     font-weight: 600;
@@ -30,8 +30,13 @@ nav li a {
     color: black;
 }
 
-nav li a:hover {
+nav li a:not(.image-link):hover {
     box-shadow: 0 0 1em azure;
+    transition: .1s ease-in;
+}
+
+nav li a:is(.image-link):hover {
+    filter: drop-shadow(0 0 1em cornflowerblue);
     transition: .1s ease-in;
 }
 
@@ -50,6 +55,6 @@ nav li:has(input[type="search"]) {
     flex-grow: 1;
 }
 
-nav li a:is(.active) {
+nav li a:not(.image-link):is(.active) {
     box-shadow: 0 0 1em azure;
 }

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css"
 import { useRef } from "react";
 
-function Navbar () {
+function Navbar (): JSX.Element {
     const searchRef: any = useRef();
     const menu_items = [
         { path: "/", title: "Home" },
@@ -14,7 +14,9 @@ function Navbar () {
         <>
             <nav>
                 <li>
-                    <img src="/logo.png" alt="Painterest" />
+                    <NavLink className="image-link" to={menu_items[0].path} end>
+                        <img src="/logo.png" alt="Painterest" />
+                    </NavLink>
                 </li>
                 {menu_items.slice(0, -1).map((el, index) => (
                 <li key={index}>
