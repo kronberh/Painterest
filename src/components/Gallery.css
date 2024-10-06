@@ -20,23 +20,16 @@
 }
 
 .masonry-item:after {
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, .5);
-    content: counter(masonry);
-    counter-increment: masonry;
+    content: " ";
     position: absolute;
     top: 0;
     left: 0; 
     height: 100%;
     width: 100%;
-    color: white;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    transition: all .1s ease-in;
 }
 
 .masonry-item:hover:after {
     font-size: 3em;
-    background-color: rgba(0, 0, 0, .75);
+    background-color: rgba(0, 0, 0, .5);
+    transition: .1s ease-in;
 }

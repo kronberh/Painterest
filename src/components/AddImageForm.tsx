@@ -29,13 +29,11 @@ function AddImageForm(): JSX.Element {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    const newImage: Image = {
-      id: 0,
+    const newImage: Partial<Image> = {
       author: authorRef.current.value,
       title: titleRef.current.value,
-      data: base64Image!,
-      tags: tagsRef.current.value.split(/\W+/).filter(Boolean),
-      likes: []
+      data: base64Image,
+      tags: tagsRef.current.value.split(/\W+/).filter(Boolean)
     };
     dispatch(addImage(newImage));
     navigate("/"); // todo redirect to image page

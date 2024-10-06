@@ -1,37 +1,35 @@
 import imagesLoaded from 'imagesloaded';
 
 function resizeMasonryItem(item: any): void {
-  let grid = document.getElementsByClassName('masonry')[0],
-    rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
-    rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  let grid: Element = document.getElementsByClassName('masonry')[0],
+    rowGap: number = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+    rowHeight: number = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
 
-  let rowSpan = Math.ceil(
+  let rowSpan: number = Math.ceil(
     (item.querySelector('.masonry-content').getBoundingClientRect().height) / (rowHeight + rowGap)
   );
-
   item.style.gridRowEnd = 'span ' + rowSpan;
 }
 
 function resizeAllMasonryItems(): void {
-  let allItems = document.getElementsByClassName('masonry-item');
-
-  for (let i = 0; i < allItems.length; i++) {
+  let allItems: HTMLCollectionOf<Element> = document.getElementsByClassName('masonry-item');
+  for (let i: number = 0; i < allItems.length; i++) {
     resizeMasonryItem(allItems[i]);   
   }
 }
 
 function waitForImages(): void {
-  let allItems = document.getElementsByClassName('masonry-item');
-  for (let i = 0; i < allItems.length; i++) {
+  let allItems: HTMLCollectionOf<Element> = document.getElementsByClassName('masonry-item');
+  for (let i: number = 0; i < allItems.length; i++) {
     imagesLoaded(allItems[i], function (instance: any) {
-      let item = instance.elements[0];
+      let item: any = instance.elements[0];
       resizeMasonryItem(item);
     });
   }
 }
 
-let masonryEvents = ['load', 'resize'];
-masonryEvents.forEach(function (event) {
+let masonryEvents: string[] = ['load', 'resize'];
+masonryEvents.forEach(function (event: any) {
   window.addEventListener(event, resizeAllMasonryItems);
 });
 
