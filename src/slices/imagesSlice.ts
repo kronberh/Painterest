@@ -45,21 +45,31 @@ export const deleteImage: any = createAsyncThunk('images/deleteImage', async (id
     return data;
 });
 
-const initialState: Image[] = [];
+const initialState = {
+    images: [] as Image[],
+    loading: false,
+};
 
 const imagesSlice = createSlice({
     name: "images",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchImages.fulfilled, (state, action: Action) => {
-            return action.payload;
+        builder.addCase(fetchImages.pending, (state: any) => {
+            state.loading = true;
         });
-        builder.addCase(addImage.fulfilled, (state, action: Action) => {
-            state.push(action.payload);
+        builder.addCase(fetchImages.fulfilled, (state: any, action: Action) => {
+            state.loading = false;
+            state.images = action.payload;
         });
-        builder.addCase(deleteImage.fulfilled, (state, action: Action) => {
-            return state.filter((image: Image) => image.id !== action.payload);
+        builder.addCase(fetchImages.rejected, (state: any) => {
+            state.loading = false;
+        });
+        builder.addCase(addImage.fulfilled, (state: any, action: Action) => {
+            state.images.push(action.payload);
+        });
+        builder.addCase(deleteImage.fulfilled, (state: any, action: Action) => {
+            state.images = state.images.filter((image: Image) => image.id !== action.payload);
         });
     }
 });
