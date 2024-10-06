@@ -10,7 +10,7 @@
     font-size: large;
     width: 100%;
     text-align: justify;
-    padding-left: 1em;
+    padding: 0 1em;
 }
 
 .add-image-form div {

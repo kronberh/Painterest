@@ -1,4 +1,3 @@
-import "./Home.css";
 import { Gallery } from "./Gallery";
 
 function Home(): JSX.Element {
@@ -8,4 +7,4 @@ function Home(): JSX.Element {
   </>;
 }
 
-export { Home }
+export { Home };

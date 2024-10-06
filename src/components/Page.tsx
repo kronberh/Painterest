@@ -14,4 +14,4 @@ function Page(): JSX.Element {
   );
 }
 
-export { Page }
+export { Page };

@@ -3,3 +3,8 @@ body {
     color: azure;
     background-color: #121212;
 }
+
+.loading-main {
+    display: block;
+    margin: auto;
+}

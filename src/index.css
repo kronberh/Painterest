@@ -9,13 +9,12 @@
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 0.5em cornflowerblue; 
-  border-radius: 10px;
+  box-shadow: inset 0 0 0.5em cornflowerblue;
 }
  
 ::-webkit-scrollbar-thumb {
-  background: cornflowerblue; 
-  border-radius: 10px;
+  background: cornflowerblue;
+  border-radius: 99em;
 }
 
 ::-webkit-scrollbar-thumb:hover {

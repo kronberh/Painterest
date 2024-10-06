@@ -1,12 +1,14 @@
 import "./App.css";
+import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes";
+import { store } from "./store/store";
 
-function App() {
+function App(): JSX.Element {
   return (
-    <>
-      <RouterProvider router={routes} fallbackElement={<div>pls wait</div>} />
-    </>
+    <Provider store={store}>
+      <RouterProvider router={routes} fallbackElement={<img src="/loading.webp" alt="loading" className="loading-main" />} />
+    </Provider>
   );
 }
 

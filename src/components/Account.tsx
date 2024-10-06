@@ -4,4 +4,4 @@ function Account(): JSX.Element {
     </>
 }
 
-export { Account }
+export { Account };
