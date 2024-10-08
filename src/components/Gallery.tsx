@@ -13,6 +13,12 @@ function Gallery(): JSX.Element {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const handleImageClick = (id: string): any => {
+        return () => {
+            navigate(`/image/${id}`);
+        }
+    };
+
     React.useEffect((): void => {
         dispatch(fetchImages());
     }, [dispatch]);
@@ -32,11 +38,10 @@ function Gallery(): JSX.Element {
                     <ErrorScreen />
                 ) : (
                     [...images].reverse().map((image: Image, index: number) => (
-                        <div key={index} className="masonry-item" onClick={() => {console.log(image.id); navigate(`/image/${image.id}`)}}>
+                        <div key={index} className="masonry-item" onClick={handleImageClick(image.id)}>
                            <img src={image.data} alt={image.title} className="masonry-content" />
                         </div>
                     ))
-
                 )}
                 </div>
             </div>

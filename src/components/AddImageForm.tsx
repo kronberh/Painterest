@@ -1,11 +1,12 @@
 import "./AddImageForm.css";
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Image } from "../model/Image";
 import { addImage } from "../slices/imagesSlice";
 
 function AddImageForm(): JSX.Element {
+  const { image } = useSelector((state: any) => state.images);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,16 +28,17 @@ function AddImageForm(): JSX.Element {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (e: any): void => {
+  const handleSubmit = async (e: any): Promise<void> => {
     e.preventDefault();
     const newImage: Partial<Image> = {
       author: authorRef.current.value,
       title: titleRef.current.value,
+      description: descriptionRef.current.value,
       data: base64Image,
       tags: tagsRef.current.value.split(/\W+/).filter(Boolean)
     };
-    dispatch(addImage(newImage));
-    navigate(`/image/${newImage.id}`);
+    dispatch(addImage(newImage)); // todo wait for completion and retreive id
+    navigate(`/image/${image.id}`);
   };
 
   return <>
@@ -70,3 +72,7 @@ function AddImageForm(): JSX.Element {
 }
 
 export { AddImageForm };
+
+function async() {
+  throw new Error("Function not implemented.");
+}

@@ -1,0 +1,76 @@
+.image-page-container {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.image-page-container div:last-child:not(.tags-container) {
+    width: 38em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.image-page-container a {
+    color: cornflowerblue;
+}
+
+.image-page-container a:hover {
+    color: azure;
+}
+
+.image-info-preview {
+    width: 38em;
+    height: 38em;
+    object-fit: contain;
+}
+
+.image-desc-container p {
+    font-size: x-large;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.image-desc-container strong {
+    font-weight: 800;
+}
+
+.image-tags-container {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    gap: 1em;
+}
+
+.image-description-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-description {
+    height: 25em;
+    overflow: auto;
+}
+
+.tags-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.delete-button {
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em;
+    border-radius: 99em;
+    color: azure;
+    background-color: crimson;
+}
+
+.delete-button:hover {
+    box-shadow: 0 0 1em crimson;
+    transition: .1s ease-in;
+}
