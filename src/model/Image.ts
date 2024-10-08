@@ -1,5 +1,5 @@
 interface Image {
-    id: number,
+    id: string,
     author: string,
     title: string,
     description?: string,

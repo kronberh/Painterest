@@ -36,7 +36,7 @@ function AddImageForm(): JSX.Element {
       tags: tagsRef.current.value.split(/\W+/).filter(Boolean)
     };
     dispatch(addImage(newImage));
-    navigate("/"); // todo redirect to image page
+    navigate(`/image/${newImage.id}`);
   };
 
   return <>

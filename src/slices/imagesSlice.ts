@@ -34,7 +34,21 @@ export const addImage: any = createAsyncThunk('images/addImage', async (newImage
     return data;
 });
 
-export const deleteImage: any = createAsyncThunk('images/deleteImage', async (id: number) => {
+export const getImage: any = createAsyncThunk('images/getImage', async (id: string) => {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    if (!response.ok) {
+        throw new Error("Failed to gegt image");
+    }
+    const data = await response.json();
+    return data;
+});
+
+export const deleteImage: any = createAsyncThunk('images/deleteImage', async (id: string) => {
     const response = await fetch(`${API_URL}/${id}`, {
         method: "DELETE"
     });
@@ -48,6 +62,7 @@ export const deleteImage: any = createAsyncThunk('images/deleteImage', async (id
 const initialState = {
     images: [] as Image[],
     loading: false,
+    error: false,
 };
 
 const imagesSlice = createSlice({
@@ -57,6 +72,7 @@ const imagesSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchImages.pending, (state: any) => {
             state.loading = true;
+            state.error = false;
         });
         builder.addCase(fetchImages.fulfilled, (state: any, action: Action) => {
             state.loading = false;
@@ -64,9 +80,22 @@ const imagesSlice = createSlice({
         });
         builder.addCase(fetchImages.rejected, (state: any) => {
             state.loading = false;
+            state.error = true;
         });
         builder.addCase(addImage.fulfilled, (state: any, action: Action) => {
             state.images.push(action.payload);
+        });
+        builder.addCase(getImage.pending, (state: any) => {
+            state.loading = true;
+            state.error = false;
+        });
+        builder.addCase(getImage.fulfilled, (state: any, action: Action) => {
+            state.loading = false;
+            state.images = action.payload;
+        });
+        builder.addCase(getImage.rejected, (state: any) => {
+            state.loading = false;
+            state.error = true;
         });
         builder.addCase(deleteImage.fulfilled, (state: any, action: Action) => {
             state.images = state.images.filter((image: Image) => image.id !== action.payload);
