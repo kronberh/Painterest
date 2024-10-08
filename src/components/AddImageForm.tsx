@@ -72,7 +72,3 @@ function AddImageForm(): JSX.Element {
 }
 
 export { AddImageForm };
-
-function async() {
-  throw new Error("Function not implemented.");
-}
