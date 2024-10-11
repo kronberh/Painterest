@@ -1,0 +1,15 @@
+.profile-picture {
+    width: 8em;
+    height: 8em;
+    color: black;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 99em;
+    margin: 0 auto;
+}
+
+.placeholder-desc {
+    text-align: center;
+}

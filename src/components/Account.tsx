@@ -1,6 +1,9 @@
+import "./Account.css";
+
 function Account(): JSX.Element {
     return <>
-        <div style={{width: "100%", textAlign: "center"}}>account placeholder</div>
+        <div className="profile-picture">[insert picture]</div>
+        <p className='placeholder-desc'>Sorry, accounts are not yet implemented to the project. You can still <a href='/add-image'>add images</a> by specifying your email.</p>
     </>
 }
 
