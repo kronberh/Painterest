@@ -51,7 +51,3 @@ function Navbar (this: any): JSX.Element {
 }
 
 export { Navbar };
-
-function dispatch(arg0: any) {
-    throw new Error("Function not implemented.");
-}
