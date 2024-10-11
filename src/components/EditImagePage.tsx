@@ -18,7 +18,7 @@ function EditImagePage(): JSX.Element {
   const tagsRef: any = useRef();
 
   const handleChangeTitle = (): void => {
-    if (titleRef.current.value) {
+    if (!!titleRef.current.value) {
       const newImage: Partial<Image> = {
         id: id,
         title: titleRef.current.value,

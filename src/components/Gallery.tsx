@@ -10,6 +10,7 @@ import { ErrorScreen } from "./ErrorScreen";
 import { style } from "typestyle";
 
 function Gallery(): JSX.Element {
+    const params = Object.fromEntries(new URLSearchParams(location.search));
     const { images, loading, error } = useSelector((state: any) => state.images);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -21,8 +22,9 @@ function Gallery(): JSX.Element {
     };
 
     React.useEffect((): void => {
-        dispatch(fetchImages());
+        dispatch(fetchImages(params));
     }, [dispatch]);
+
     React.useEffect((): void => {
         if (!loading && !error) {
             waitForImages();

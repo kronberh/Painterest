@@ -1,14 +1,30 @@
-import { NavLink } from "react-router-dom";
 import "./Navbar.css"
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
-function Navbar (): JSX.Element {
+function Navbar (this: any): JSX.Element {
+    const navigate = useNavigate();
+    const params = Object.fromEntries(new URLSearchParams(location.search));
+
     const searchRef: any = useRef();
     const menu_items = [
         { path: "/", title: "Home" },
         { path: "add-image", title: "Add Image" },
         { path: "account", title: "You" },
     ];
+
+    const handleSearch = (e: any): void => {
+        if (e.key === 'Enter') {
+            if (!!searchRef.current.value) {
+                navigate(`/?title=${searchRef.current.value}`);
+                searchRef.current.value = '';
+            }
+            else {
+                navigate('/');
+            }
+            location.reload();
+        }
+      };
 
     return (
         <>
@@ -24,7 +40,7 @@ function Navbar (): JSX.Element {
                 </li>
                 ))}
                 <li>
-                    <input type="search" ref={searchRef} placeholder={"⌕" + (searchRef.current?.value ?? "")} />
+                    <input type="search" ref={searchRef} placeholder={!!params.title ? params.title : "⌕"} onKeyDown={handleSearch} />
                 </li>
                 <li>
                     <NavLink to={menu_items[menu_items.length - 1].path} end>{menu_items[menu_items.length - 1].title}</NavLink>
@@ -35,3 +51,7 @@ function Navbar (): JSX.Element {
 }
 
 export { Navbar };
+
+function dispatch(arg0: any) {
+    throw new Error("Function not implemented.");
+}

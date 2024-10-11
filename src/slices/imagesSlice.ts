@@ -4,8 +4,8 @@ import { Image } from "../model/Image";
 
 const API_URL: string = import.meta.env.VITE_APP_HOST + "/images";
 
-export const fetchImages: any = createAsyncThunk('images/fetchImages', async () => {
-    const response: Response = await fetch(API_URL, {
+export const fetchImages: any = createAsyncThunk('images/fetchImages', async (searchParams?: any) => {
+    const response: Response = await fetch(API_URL + "?" + new URLSearchParams(searchParams).toString(), {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

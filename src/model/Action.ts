@@ -1,5 +1,4 @@
 interface Action {
-    
     payload?: any
 }
 
