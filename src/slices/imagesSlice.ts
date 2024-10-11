@@ -29,7 +29,7 @@ export const addImage: any = createAsyncThunk('images/addImage', async (newImage
             title: newImage.title,
             data: newImage.data,
             tags: newImage.tags,
-            likes: []
+            likes: 0
         }),
     });
     if (!response.ok) {
