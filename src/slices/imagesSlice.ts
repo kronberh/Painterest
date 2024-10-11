@@ -53,6 +53,21 @@ export const getImage: any = createAsyncThunk('images/getImage', async (id: stri
     return data;
 });
 
+export const editImage: any = createAsyncThunk('images/editImage', async (newImage: Partial<Image>) => {
+    const response = await fetch(`${API_URL}/${newImage.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newImage),
+    });
+    if (!response.ok) {
+        throw new Error("Failed to get image");
+    }
+    const data = await response.json();
+    return data;
+});
+
 export const deleteImage: any = createAsyncThunk('images/deleteImage', async (id: string) => {
     const response = await fetch(`${API_URL}/${id}`, {
         method: "DELETE"
@@ -93,8 +108,8 @@ const imagesSlice = createSlice({
             state.error = false;
         });
         builder.addCase(addImage.fulfilled, (state: any, action: Action) => {
-            state.images.push(action.payload);
             state.image = action.payload;
+            state.images.push(action.payload);
             state.loading = false;
         });
         builder.addCase(addImage.rejected, (state: any) => {
@@ -110,6 +125,27 @@ const imagesSlice = createSlice({
             state.loading = false;
         });
         builder.addCase(getImage.rejected, (state: any) => {
+            state.loading = false;
+            state.error = true;
+        });
+        builder.addCase(editImage.pending, (state: any) => {
+            state.loading = true;
+            state.error = false;
+        });
+        builder.addCase(editImage.fulfilled, (state: any, action: Action) => {
+            state.image = action.payload;
+            state.images = state.images.map((image: Image) => image.id === action.payload.id ? {
+                id: action.payload.id,
+                author: action.payload.author,
+                title: action.payload.title,
+                description: action.payload.description,
+                data: action.payload.data,
+                tags: action.payload.tags,
+                likes: action.payload.likes
+            } : image);
+            state.loading = false;
+        });
+        builder.addCase(editImage.rejected, (state: any) => {
             state.loading = false;
             state.error = true;
         });

@@ -4,6 +4,7 @@ import { Page } from "./components/Page";
 import { AddImageForm } from "./components/AddImageForm";
 import { Account } from "./components/Account";
 import { ImagePage } from "./components/ImagePage";
+import { EditImagePage } from "./components/EditImagePage";
 
 const routes = createBrowserRouter (
   createRoutesFromElements (
@@ -12,6 +13,7 @@ const routes = createBrowserRouter (
       <Route path="add-image" element={<AddImageForm />} />
       <Route path="account" element={<Account />} />
       <Route path="image/:id" element={<ImagePage />} />
+      <Route path="edit-image/:id" element={<EditImagePage />} />
     </Route>
   )
 );

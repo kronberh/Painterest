@@ -60,6 +60,25 @@
     gap: 1em;
 }
 
+.edit-button {
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em;
+    border-radius: 99em;
+    color: azure;
+    background-color: cornflowerblue;
+}
+
+.edit-button:hover {
+    box-shadow: 0 0 1em cornflowerblue;
+    transition: .1s ease-in;
+}
+
+.buttons-container {
+    flex-direction: row !important;
+}
+
 .delete-button {
     border: none;
     font-size: 1em;

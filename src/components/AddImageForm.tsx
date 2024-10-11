@@ -28,7 +28,7 @@ function AddImageForm(): JSX.Element {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = async (e: any): Promise<void> => {
+  const handleSubmit = (e: any): void => {
     e.preventDefault();
     const newImage: Partial<Image> = {
       author: authorRef.current.value,

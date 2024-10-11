@@ -5,7 +5,6 @@ interface Image {
     description?: string,
     data: string,
     tags: string[],
-    views?: number,
     likes: string[]
 }
 

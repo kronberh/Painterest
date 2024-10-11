@@ -14,6 +14,10 @@ function ImagePage(): JSX.Element {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const handleEditImage = (): void => {
+        navigate(`/edit-image/${id}`);
+    };
+
     const handleDeleteImage = (): void => {
         dispatch(deleteImage(id));
         navigate("/");
@@ -74,7 +78,10 @@ function ImagePage(): JSX.Element {
                                     })}
                                 </div>
                             </div>
-                           <button className="delete-button" onClick={handleDeleteImage}>Delete Image</button>
+                            <div className="buttons-container">
+                                <button className="edit-button" onClick={handleEditImage}>Edit Info</button>
+                                <button className="delete-button" onClick={handleDeleteImage}>Delete Image</button>
+                            </div>
                         </div>
                     </>
                 )}

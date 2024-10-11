@@ -1,0 +1,117 @@
+.edit-image-form {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.edit-image-form label {
+    font-size: large;
+    width: 100%;
+    text-align: justify;
+    padding: 0 1em;
+}
+
+.edit-image-form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+}
+
+.edit-image-form div:last-child {
+    width: 38em;
+}
+
+.image-preview {
+    width: 38em;
+    height: 38em;
+    object-fit: contain;
+}
+
+.edit-image-form input[readonly] {
+    background-color: gray !important;
+}
+
+.edit-image-form input[type=file] {
+    border-radius: 99em;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.edit-image-form input[type=file]:hover {
+    box-shadow: 0 0 1em azure;
+    transition: .1s ease-in;
+}
+
+.edit-image-form input::file-selector-button {
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em;
+    border-radius: 99em;
+    background-color: azure;
+    color: black;
+}
+
+.edit-image-form .input-container {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.edit-image-form input[type=text], .edit-image-form input[type=email], .edit-image-form textarea {
+    border: none;
+    font-size: 1em;
+    width: 100%;
+    font-weight: 600;
+    padding: 1em;
+    border-radius: 2em;
+    background-color: azure;
+    color: black;
+}
+
+.edit-image-form .input-container-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.edit-image-form textarea {
+    resize: none;
+    align-self: stretch;
+}
+
+.edit-image-form .input-container:has(textarea) {
+    flex-grow: 1;
+}
+
+.edit-image-form .input-container-2:has(textarea) {
+    flex-grow: 1;
+}
+
+.edit-image-form .input-container-2:has(textarea) button {
+    align-self: flex-end;
+}
+
+.edit-image-form button {
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em;
+    border-radius: 99em;
+    background-color: cornflowerblue;
+    color: black;
+}
+
+.edit-image-form button:hover {
+    filter: drop-shadow(0 0 1em cornflowerblue);
+    transition: .1s ease-in;
+}
+
+.button-end-edit {
+    background-color: azure !important;
+}
+
+.button-end-edit:hover {
+    filter: drop-shadow(0 0 1em azure) !important;
+}
