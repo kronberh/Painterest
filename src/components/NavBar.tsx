@@ -50,4 +50,4 @@ function Navbar (this: any): JSX.Element {
     );
 }
 
-export { Navbar };
+export default Navbar;
