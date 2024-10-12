@@ -1,11 +1,12 @@
 import "./Page.css";
 import { Outlet } from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { Menu } from "./Menu";
+
 
 function Page(): JSX.Element {
   return (
     <>
-      <Navbar />
+      <Menu />
       <div style={{padding: "2.5em"}}></div>
       <div className="outlet-container">
         <Outlet />

@@ -1,8 +1,8 @@
-import "./NavBar.css"
+import "./Menu.css"
 import { NavLink, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
-function Navbar (this: any): JSX.Element {
+function Menu (this: any): JSX.Element {
     const navigate = useNavigate();
     const params = Object.fromEntries(new URLSearchParams(location.search));
 
@@ -50,4 +50,4 @@ function Navbar (this: any): JSX.Element {
     );
 }
 
-export { Navbar };
+export { Menu };
