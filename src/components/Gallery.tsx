@@ -44,7 +44,7 @@ function Gallery(): JSX.Element {
                         <div key={index} className="masonry-item" onClick={handleImageClick(image.id)}>
                             <img src={image.data} className="masonry-content" />
                             <div className="masonry-info">
-                                <span>{image.title} <span className="masonry-views">{image.views}👁</span><span className="masonry-likes">{image.likes}♥</span></span>
+                                <span>{image.title} <span className="masonry-views">{image.views}👁</span> <span className="masonry-likes">{image.likes}♥</span></span>
                                 <div className="masonry-tags">
                                     {image.tags?.map((element: string, index: number) => {
                                         const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
