@@ -22,7 +22,7 @@ function Navbar (this: any): JSX.Element {
             else {
                 navigate('/');
             }
-            location.reload();
+            navigate(0);
         }
       };
 

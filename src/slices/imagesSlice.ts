@@ -53,6 +53,34 @@ export const getImage: any = createAsyncThunk('images/getImage', async (id: stri
     return data;
 });
 
+export const likeImage: any = createAsyncThunk('images/likeImage', async (id: string) => {
+    let response = await fetch(`${API_URL}/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    if (!response.ok) {
+        throw new Error("Failed to get image");
+    }
+    let data = await response.json();
+    data.likes += 1;
+    response = await fetch(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            likes: data.likes
+        }),
+    });
+    if (!response.ok) {
+        throw new Error("Failed to get image");
+    }
+    data = await response.json();
+    return data;
+});
+
 export const editImage: any = createAsyncThunk('images/editImage', async (newImage: Partial<Image>) => {
     const response = await fetch(`${API_URL}/${newImage.id}`, {
         method: "PATCH",

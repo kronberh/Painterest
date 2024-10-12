@@ -37,7 +37,7 @@
     transition: .1s ease-in;
 }
 
- .masonry-info {
+.masonry-info {
     height: 100%;
     padding: 0.25em;
     position: absolute;
@@ -53,6 +53,13 @@
 .masonry-info span {
     font-size: 2em;
     font-weight: 600;
+}
+
+.masonry-likes {
+    padding: 0.25em;
+    font-size: large !important;
+    background-color: cornflowerblue;
+    border-radius: 99em;
 }
 
 .masonry-item:hover .masonry-info {

@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { style } from "typestyle";
-import { deleteImage, getImage } from "../slices/imagesSlice";
+import { deleteImage, getImage, likeImage } from "../slices/imagesSlice";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { ErrorScreen } from "./ErrorScreen";
 
@@ -13,6 +13,13 @@ function ImagePage(): JSX.Element {
     const { image, loading, error } = useSelector((state: any) => state.images);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const handleLikeImage = (e: any): void => {
+        dispatch(likeImage(id));
+        e.target.disabled = true;
+        e.target.innerHTML = "♥";
+        e.target.classList.add('liked-button');
+    };
 
     const handleEditImage = (): void => {
         navigate(`/edit-image/${id}`);
@@ -79,6 +86,7 @@ function ImagePage(): JSX.Element {
                                 </div>
                             </div>
                             <div className="buttons-container">
+                            <button className="like-button" onClick={handleLikeImage}>♡</button>
                                 <button className="edit-button" onClick={handleEditImage}>Edit Info</button>
                                 <button className="delete-button" onClick={handleDeleteImage}>Delete Image</button>
                             </div>
