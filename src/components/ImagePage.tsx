@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { style } from "typestyle";
-import { deleteImage, getImage, likeImage } from "../slices/imagesSlice";
+import { deleteImage, getImage, likeImage, viewImage } from "../slices/imagesSlice";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { ErrorScreen } from "./ErrorScreen";
 
@@ -31,6 +31,10 @@ function ImagePage(): JSX.Element {
     };
 
     React.useEffect((): void => {
+        dispatch(viewImage(id));
+    }, []);
+
+    React.useEffect((): void => {
         dispatch(getImage(id));
     }, [dispatch]);
 
@@ -45,6 +49,11 @@ function ImagePage(): JSX.Element {
                     <>
                         <div>
                             <img src={image.data} className="image-info-preview" />
+                            <br />
+                            <div className="image-stats-container">
+                                <span className="image-views">{image.views}👁</span>
+                                <span className="image-likes">{image.likes}♥</span>
+                            </div>
                         </div>
                         <div>
                             <div className="image-desc-container">

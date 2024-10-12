@@ -62,6 +62,13 @@
     border-radius: 99em;
 }
 
+.masonry-views {
+    padding: 0.25em;
+    font-size: large !important;
+    background-color: gray;
+    border-radius: 99em;
+}
+
 .masonry-item:hover .masonry-info {
     opacity: 1;
     transition: .1s ease-in;

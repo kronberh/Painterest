@@ -13,6 +13,26 @@
     gap: 1em;
 }
 
+.image-stats-container {
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 1em;
+}
+
+.image-likes {
+    padding: 1em;
+    font-size: large !important;
+    background-color: cornflowerblue;
+    border-radius: 99em;
+}
+
+.image-views {
+    padding: 1em;
+    font-size: large !important;
+    background-color: gray;
+    border-radius: 99em;
+}
+
 .image-page-container a {
     color: cornflowerblue;
 }

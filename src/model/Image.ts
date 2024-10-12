@@ -5,7 +5,8 @@ interface Image {
     description?: string,
     data: string,
     tags: string[],
-    likes: number
+    likes: number,
+    views: number
 }
 
 export type { Image };
